@@ -22,11 +22,11 @@
     }
   ],
   "require": {
-    "craftcms/cms": "^3.5",
+    "craftcms/cms": "^3.5.19",
     "lucleroy/php-regex": "^0.5.0"
   },
   "require-dev": {
-    "craftcms/cms": "^3.5",
+    "craftcms/cms": "^3.5.19",
     "vlucas/phpdotenv": "^3.0"
   },
   "autoload": {
