@@ -8,7 +8,9 @@ This plugin requires Craft CMS 3.5 later.
 
 ## Installation
 
-   composer require rauwebieten/translations-extractor
+```
+composer require rauwebieten/craft-translations-extractor
+```
 
 ## Usage
 
