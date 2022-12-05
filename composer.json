@@ -1,0 +1,55 @@
+{
+  "name": "rauwebieten/craft-translations-extractor",
+  "description": "Craft CMS Translations Extractor",
+  "type": "craft-plugin",
+  "version": "1.0.0",
+  "keywords": [
+    "craft",
+    "cms",
+    "craftcms",
+    "craft-plugin",
+    "translations extractor"
+  ],
+  "support": {
+    "docs": "https://github.com/rauwebieten/translations-extractor/blob/master/README.md",
+    "issues": "https://github.com/rauwebieten/translations-extractor/issues"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "rauwebieten",
+      "homepage": "https://github.com/rauwebieten"
+    }
+  ],
+  "require": {
+    "craftcms/cms": "^3.5",
+    "lucleroy/php-regex": "^0.5.0"
+  },
+  "require-dev": {
+    "craftcms/cms": "^3.5",
+    "vlucas/phpdotenv": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "rauwebieten\\translationsextractor\\": "src/"
+    }
+  },
+  "extra": {
+    "name": "Translations Extractor",
+    "handle": "translations-extractor",
+    "developer": "rauwebieten",
+    "developerUrl": "https://github.com/rauwebieten",
+    "documentationUrl": "https://github.com/rauwebieten/translations-extractor/blob/master/README.md",
+    "changelogUrl": "https://raw.githubusercontent.com/rauwebieten/translations-extractor/master/CHANGELOG.md",
+    "components": {
+      "extractor": "rauwebieten\\translationsextractor\\services\\Extractor"
+    },
+    "class": "rauwebieten\\translationsextractor\\TranslationsExtractor"
+  },
+  "config": {
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true
+    }
+  }
+}
