@@ -13,6 +13,8 @@ namespace rauwebieten\translationsextractor\services;
 use Craft;
 use craft\base\Component;
 use craft\helpers\FileHelper;
+use LucLeroy\Regex\Charset;
+use LucLeroy\Regex\Expressions\Char;
 use LucLeroy\Regex\Regex;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -34,21 +36,33 @@ class Extractor extends Component
     {
         parent::init();
 
-        $this->twigRegex = Regex::create()
-            ->lazy()
-            //->literal(' ')->before()
-            ->chars('\'"')->capture('quote')
-            ->start()
-            ->anyChar()->anyTimes()
-            ->group()->capture('message')
-            ->ref('quote')
-            ->alt([
-                Regex::create()->literal('|t'),
-                Regex::create()->literal('|translate')
-            ])
-            ->notChars('a..z')->after()
-            //->literal(' ')->after()
-            ->getRegex();
+        // https://www.metaltoad.com/blog/regex-quoted-string-escapable-quotes
+        // https://regex101.com/
+
+        $re_quoted_string = '(?P<quote>(?<![\\\\])[\'"])(?P<message>(?:.(?!(?<![\\\\])\1))*.?)\1';
+        $re_filter = '\|(t|translate)(?![a-z]{1})';
+
+        $this->twigRegex = "/{$re_quoted_string}{$re_filter}/m";
+
+        // cannot use this lib, see https://github.com/lucleroy/php-regex/issues/6
+
+//        $this->twigRegex = Regex::create()
+//            ->lazy()
+//            //->literal(' ')->before()
+//            ->chars('\'"')->capture('quote')
+//            ->start()
+//
+//            ->anyChar()->anyTimes()
+//
+//            ->group()->capture('message')
+//            ->ref('quote')
+//            ->alt([
+//                Regex::create()->literal('|t'),
+//                Regex::create()->literal('|translate')
+//            ])
+//            ->notChars('a..z')->after()
+//            //->literal(' ')->after()
+//            ->getRegex();
     }
 
     /**
