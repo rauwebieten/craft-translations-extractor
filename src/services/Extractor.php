@@ -32,7 +32,7 @@ class Extractor extends Component
     /** @var string */
     private $twigRegex;
 
-    public function init()
+    public function init() :void
     {
         parent::init();
 
