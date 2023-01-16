@@ -32,7 +32,7 @@ class TranslationsExtractor extends Plugin
     /**
      * @var TranslationsExtractor
      */
-    public static $plugin;
+    public static TranslationsExtractor $plugin;
 
     // Public Properties
     // =========================================================================
@@ -40,17 +40,17 @@ class TranslationsExtractor extends Plugin
     /**
      * @var string
      */
-    public $schemaVersion = '1.0.0';
+    public string $schemaVersion = '1.0.0';
 
     /**
      * @var bool
      */
-    public $hasCpSettings = false;
+    public bool $hasCpSettings = false;
 
     /**
      * @var bool
      */
-    public $hasCpSection = false;
+    public bool $hasCpSection = false;
 
     // Public Methods
     // =========================================================================
